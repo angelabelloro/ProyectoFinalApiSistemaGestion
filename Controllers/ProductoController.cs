@@ -12,7 +12,7 @@ namespace MiPrimeraApi.Controllers
         [HttpGet(Name = "GetProductos")]
         public List<Producto> GetProducto()
         {
-            return new List<Producto>();
+            return ProductoHandler.GetProductos();
         }
 
         [HttpDelete]

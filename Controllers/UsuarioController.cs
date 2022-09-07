@@ -12,7 +12,7 @@ namespace MiPrimeraApi.Controllers
         [HttpGet(Name = "GetUsuarios")]
         public List<Usuario> GetUsuarios()
         {
-            return new List<Usuario>();
+            return UsuarioHandler.GetUsuarios();
         }
 
         [HttpDelete]

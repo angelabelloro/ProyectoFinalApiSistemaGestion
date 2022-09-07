@@ -1,6 +1,6 @@
-﻿namespace MiPrimeraApi.Model
+﻿namespace MiPrimeraApi.Controllers.DTOS
 {
-    public class Venta
+    public class PutVenta
     {
         public int Id { get; set; }
         public string Comentarios { get; set; }

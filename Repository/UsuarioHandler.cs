@@ -115,7 +115,7 @@ namespace MiPrimeraApi.Repository
             {
                 string queryInsert = "UPDATE [SistemaGestion].[dbo].[Usuario] " +
                     "SET Nombre = @nombreParameter, Apellido = @apellidoParameter, NombreUsuario = @nombreUsuarioParameter, Contraseña = @contraseñaParameter, Mail =@mailParameter" +
-                    "WHERE Id = @id ";
+                    "WHERE Id = @idParameter";
 
                 SqlParameter nombreParameter = new SqlParameter("nombre", SqlDbType.VarChar) { Value = usuario.Nombre };
                 SqlParameter apellidoParameter = new SqlParameter("apellidoParameter", SqlDbType.VarChar) { Value = usuario.Apellido };

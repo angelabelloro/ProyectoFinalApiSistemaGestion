@@ -8,7 +8,7 @@ namespace MiPrimeraApi.Repository
     {
         public const string ConnectionString = "Server=DESKTOP-4BVLUFB;Initial Catalog=SistemaGestion;Trusted_Connection=true";
 
-        public static List<Producto> GetProductos()
+        public static List<Producto>GetProductos()
         {
             List<Producto> resultados = new List<Producto>();
 
@@ -89,15 +89,14 @@ namespace MiPrimeraApi.Repository
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
                 string queryInsert = "UPDATE [SistemaGestion].[dbo].[Producto] " +
-                    "SET Descripciones = @descripcionesParameter, Costo = @costoParameter, PrecioVenta = @precioVentaParameter, Stock = @stockParameter, IdUsuario = @idUsuarioParameter" +
-                    "WHERE Id = @id ";
+                    "SET Descripciones = @descripcionesParameter, Costo = @costoParameter, PrecioVenta = @precioVentaParameter, Stock = @stockParameter" +" "+
+                    "WHERE Id = @idParameter";
 
                 SqlParameter descripcionesParameter = new SqlParameter("descripcionesParameter", SqlDbType.VarChar) { Value = producto.Descripciones };
                 SqlParameter costoParameter = new SqlParameter("costoParameter", SqlDbType.VarChar) { Value = producto.Costo };
                 SqlParameter precioVentaUsuarioParameter = new SqlParameter("precioVentaParameter", SqlDbType.VarChar) { Value = producto.PrecioVenta };
                 SqlParameter stockParameter = new SqlParameter("stockParameter", SqlDbType.VarChar) { Value = producto.Stock };
-                SqlParameter idUsuarioParameter = new SqlParameter("idUsuarioParameter", SqlDbType.VarChar) { Value = producto.IdUsuario };
-                SqlParameter idParameter = new SqlParameter("id", SqlDbType.VarChar) { Value = producto.Id };
+                SqlParameter idParameter = new SqlParameter("idParameter", SqlDbType.VarChar) { Value = producto.Id };
 
                 sqlConnection.Open();
 
@@ -107,7 +106,6 @@ namespace MiPrimeraApi.Repository
                     sqlCommand.Parameters.Add(costoParameter);
                     sqlCommand.Parameters.Add(precioVentaUsuarioParameter);
                     sqlCommand.Parameters.Add(stockParameter);
-                    sqlCommand.Parameters.Add(idUsuarioParameter);
                     sqlCommand.Parameters.Add(idParameter);
 
                     int numberOfRows = sqlCommand.ExecuteNonQuery(); // Se ejecuta la sentencia sql
