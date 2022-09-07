@@ -22,9 +22,9 @@ namespace MiPrimeraApi.Repository
 
                     string lista = Convert.ToString(listaDeProductos);
                     sqlCommand.CommandText = "INSERT INTO [SistemaGestion].[dbo].[Venta] (Comentarios)" +
-                        " VALUES ( @comentariosParameter );";
+                        " VALUES ( @comentariosParameter )";
                     SqlParameter comentariosParameter = new SqlParameter("comentariosParameter", SqlDbType.VarChar) { Value = lista };
-                    int recordsAffected = sqlCommand.ExecuteNonQuery();
+                    int resultado = sqlCommand.ExecuteNonQuery();
 
                     foreach (var productoVendido in listaDeProductos)
                     {
@@ -32,7 +32,7 @@ namespace MiPrimeraApi.Repository
                     }
 
                     sqlCommand.Connection.Close();
-                    if (recordsAffected != 1)
+                    if (resultado != 1)
 
                     {
                         return false;
